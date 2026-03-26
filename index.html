@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>30Days — Take Back Your Time</title>
+  <meta name="description" content="A 30-day digital detox challenge with a real accountability partner. No apps. No sermons. Just two people choosing to take back their time." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="30Days — Take Back Your Time" />
+  <meta property="og:description" content="Your phone was designed by 1,000 engineers to keep you scrolling. You're not weak. You're just alone against an algorithm." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://30days.ralian.com" />
+  <meta property="og:image" content="https://30days.ralian.com/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="30Days — Take Back Your Time" />
+  <meta name="twitter:description" content="30 days. One accountability partner. Zero apps." />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>30</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ─── NAV ─────────────────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">30<span class="accent">Days</span></a>
+      <a href="#waitlist" class="nav-cta">Join waitlist</a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────────────────────────── -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="grid-lines"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="eyebrow reveal">by Ralian Labs</div>
+
+      <h1 class="hero-title reveal">
+        Your phone was designed<br />
+        by <span class="accent">1,000 engineers</span><br />
+        to keep you scrolling.
+      </h1>
+
+      <p class="hero-sub reveal">
+        You're not weak. You're just alone against an algorithm.
+      </p>
+
+      <p class="hero-subsub reveal">
+        30 days. One accountability partner. Zero apps.
+      </p>
+
+      <form class="hero-form reveal" id="hero-form" action="#" onsubmit="handleForm(event, 'hero')">
+        <div class="form-row">
+          <input
+            type="email"
+            placeholder="your@email.com"
+            class="email-input"
+            required
+            aria-label="Email address"
+          />
+          <button type="submit" class="btn-primary">
+            <span class="btn-text">Join the waitlist</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+        <p class="form-note" id="hero-count">Join <span class="accent">0</span> others taking back their time</p>
+      </form>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ─── PROBLEM ───────────────────────────────────────────────── -->
+  <section class="section problem" id="problem">
+    <div class="container">
+
+      <div class="problem-stat reveal">
+        <div class="stat-number" id="lifetime-counter">
+          <span class="count-up" data-target="912">0</span>
+        </div>
+        <div class="stat-label">days of your life<br/>on social media</div>
+      </div>
+
+      <div class="problem-text reveal">
+        <p class="problem-line">The average person spends <strong>2 hours 31 minutes</strong> on social media daily.</p>
+        <p class="problem-line">That's <strong>38 days a year.</strong></p>
+        <p class="problem-line"><strong>912 days in a lifetime.</strong></p>
+        <p class="problem-line highlight-line">Two and a half <strong>YEARS</strong> staring at other people's lives instead of living yours.</p>
+      </div>
+
+      <div class="live-counter reveal" id="live-counter-block">
+        <div class="live-counter-inner">
+          <div class="live-dot"></div>
+          <p class="live-label">Since you opened this page</p>
+          <div class="live-number">
+            <span id="page-seconds">0</span>
+            <span class="live-unit">seconds</span>
+          </div>
+          <p class="live-sub">Imagine that, but on TikTok. Every day. For years.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── WHY APPS DON'T WORK ───────────────────────────────────── -->
+  <section class="section apps-fail" id="why">
+    <div class="container">
+
+      <div class="section-tag reveal">The problem with your solution</div>
+      <h2 class="section-title reveal">You've tried everything.</h2>
+
+      <div class="tried-list reveal">
+        <div class="tried-item">
+          <div class="tried-icon strikethrough">⏱</div>
+          <div class="tried-content">
+            <strong>Screen Time limits</strong>
+            <span class="tried-result">You tap "Ignore" in 2 seconds</span>
+          </div>
+        </div>
+        <div class="tried-item">
+          <div class="tried-icon strikethrough">🗑</div>
+          <div class="tried-content">
+            <strong>Deleting apps</strong>
+            <span class="tried-result">Reinstalled by Tuesday</span>
+          </div>
+        </div>
+        <div class="tried-item">
+          <div class="tried-icon strikethrough">💪</div>
+          <div class="tried-content">
+            <strong>Willpower</strong>
+            <span class="tried-result">You're reading this on your phone right now</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="apps-fail-kicker reveal">
+        <p>Apps can't fix app addiction.</p>
+        <p class="kicker-dim">That's like asking the bartender to run your AA meeting.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── HOW IT WORKS ─────────────────────────────────────────── -->
+  <section class="section how" id="how">
+    <div class="container">
+
+      <div class="section-tag reveal">Dead simple</div>
+      <h2 class="section-title reveal">How it works</h2>
+
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-number">01</div>
+          <div class="step-line"></div>
+          <div class="step-content">
+            <h3>Sign up</h3>
+            <p>Get matched with a real accountability partner — a person, not a bot — based on your timezone and goals.</p>
+          </div>
+        </div>
+
+        <div class="step reveal">
+          <div class="step-number">02</div>
+          <div class="step-line"></div>
+          <div class="step-content">
+            <h3>Follow daily prompts</h3>
+            <p>5-minute emails. Specific actions, not motivational fluff. Check in with your partner. That's it.</p>
+          </div>
+        </div>
+
+        <div class="step reveal">
+          <div class="step-number">03</div>
+          <div class="step-line"></div>
+          <div class="step-content">
+            <h3>30 days later</h3>
+            <p>New habits. A cleaner relationship with your phone. And probably a new friend.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── WHAT YOU GET ─────────────────────────────────────────── -->
+  <section class="section what" id="what">
+    <div class="container">
+
+      <div class="section-tag reveal">What's included</div>
+      <h2 class="section-title reveal">No apps. No gimmicks.</h2>
+
+      <div class="features-grid">
+        <div class="feature reveal">
+          <div class="feature-icon">✉</div>
+          <h4>30 daily emails</h4>
+          <p>Specific actions, not motivational fluff. Each email fits in 5 minutes or less.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature-icon">🤝</div>
+          <h4>1:1 accountability partner</h4>
+          <p>Matched by timezone and goals. A real human who's in it with you.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature-icon">🔒</div>
+          <h4>Private community</h4>
+          <p>Fellow detoxers only. No algorithmic feed. No engagement bait.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature-icon">📅</div>
+          <h4>Weekly group check-ins</h4>
+          <p>Live calls. Optional. Short. With people who actually get what you're doing.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature-icon">📊</div>
+          <h4>Progress tracking</h4>
+          <p>Simple. Not gamified. This isn't another dopamine trap.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature-icon">🧭</div>
+          <h4>Lifetime community access</h4>
+          <p>For founding members. Because the work doesn't stop after 30 days.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── PRICING ──────────────────────────────────────────────── -->
+  <section class="section pricing" id="waitlist">
+    <div class="container">
+
+      <div class="section-tag reveal">Simple pricing</div>
+      <h2 class="section-title reveal">Two ways in.</h2>
+
+      <div class="pricing-grid">
+
+        <!-- Free tier -->
+        <div class="pricing-card reveal">
+          <div class="pricing-badge">Free</div>
+          <h3 class="pricing-name">Waitlist</h3>
+          <div class="pricing-amount">$0</div>
+          <p class="pricing-desc">Get notified when the next cohort launches.</p>
+          <ul class="pricing-perks">
+            <li>Early access notification</li>
+            <li>Priority matching</li>
+            <li>Founding rate offer first</li>
+          </ul>
+          <form action="#" onsubmit="handleForm(event, 'free')" class="pricing-form">
+            <input type="email" placeholder="your@email.com" class="email-input" required aria-label="Email address" />
+            <button type="submit" class="btn-secondary full-width">Notify me →</button>
+          </form>
+        </div>
+
+        <!-- Paid tier -->
+        <div class="pricing-card pricing-card--featured reveal">
+          <div class="pricing-badge pricing-badge--accent">Founding Member</div>
+          <h3 class="pricing-name">Cohort #1</h3>
+          <div class="pricing-amount">$19 <span class="pricing-forever">/ forever</span></div>
+          <p class="pricing-desc">Lock in the founding price. First 100 only.</p>
+          <ul class="pricing-perks">
+            <li>Guaranteed spot in Cohort #1</li>
+            <li>Lifetime community access</li>
+            <li>Founding Member badge</li>
+            <li>Direct input on challenge design</li>
+            <li>Lock in $9/mo renewal rate forever</li>
+          </ul>
+          <div class="spots-left">
+            <div class="spots-bar">
+              <div class="spots-fill" id="spots-fill" style="width: 23%"></div>
+            </div>
+            <span class="spots-text"><span id="spots-remaining">77</span> of 100 founding spots remaining</span>
+          </div>
+          <form action="#" onsubmit="handleForm(event, 'paid')" class="pricing-form">
+            <input type="email" placeholder="your@email.com" class="email-input" required aria-label="Email address" />
+            <button type="submit" class="btn-primary full-width">Claim my spot →</button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── FAQ ──────────────────────────────────────────────────── -->
+  <section class="section faq" id="faq">
+    <div class="container container--narrow">
+
+      <div class="section-tag reveal">Questions</div>
+      <h2 class="section-title reveal">Probably on your mind.</h2>
+
+      <div class="faq-list reveal">
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Is this an app?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>No. That would be ironic. It's emails, a partner, and a community. Nothing to download. Nothing to tap "Ignore" on.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What if my partner flakes?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>We re-match you within 24 hours. No one gets left behind. Accountability cuts both ways — your partner is also counting on you.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Can I still use my phone?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. This isn't about going Amish. It's about using your phone as a tool, not a pacifier. You'll still call your mom. You just won't spend 2 hours watching strangers dance.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What happens after 30 days?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>You keep the habits. Optionally, stay in the community for $9/month — but you're not locked into anything. The goal is for you to not need us.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Is this based on science?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. Accountability partners increase goal achievement by 95% (ASTC research). We didn't invent the science. We just made it dead simple and removed the app-shaped irony.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── FINAL CTA ─────────────────────────────────────────────── -->
+  <section class="section final-cta" id="final">
+    <div class="container container--narrow">
+
+      <div class="final-inner reveal">
+        <p class="final-line">You can close this tab and keep scrolling.</p>
+        <p class="final-line final-or">Or</p>
+        <p class="final-line">you can try 30 days with someone who gets it.</p>
+        <p class="final-note">No sermons. No apps. Just two people choosing to take back their time.</p>
+
+        <form action="#" onsubmit="handleForm(event, 'final')" class="hero-form final-form">
+          <div class="form-row">
+            <input type="email" placeholder="your@email.com" class="email-input" required aria-label="Email address" />
+            <button type="submit" class="btn-primary">
+              <span class="btn-text">I'm in</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="nav-logo">30<span class="accent">Days</span></span>
+          <span class="footer-by">by Ralian Labs</span>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#">Twitter</a>
+          <a href="#">Community</a>
+          <a href="#">Contact</a>
+        </nav>
+        <p class="footer-tagline">Made with intention, not algorithms.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
