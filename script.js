@@ -108,11 +108,13 @@
 
     if (!email) return;
 
-    // Send to Beehiiv via magic link
-    fetch(BEEHIIV_MAGIC + '?email=' + encodeURIComponent(email), {
-      mode: 'no-cors',
-      credentials: 'omit'
-    }).catch(() => {});
+    // Send to Beehiiv via magic link (popup that auto-closes)
+    const popup = window.open(
+      BEEHIIV_MAGIC + '?email=' + encodeURIComponent(email),
+      '_blank',
+      'width=1,height=1,left=-100,top=-100'
+    );
+    if (popup) setTimeout(() => popup.close(), 3000);
 
     // Show success + Tally link
     form.outerHTML = `
