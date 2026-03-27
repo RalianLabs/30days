@@ -108,13 +108,19 @@
 
     if (!email) return;
 
-    // Send to Beehiiv via magic link (popup that auto-closes)
-    const popup = window.open(
-      BEEHIIV_MAGIC + '?email=' + encodeURIComponent(email),
-      '_blank',
-      'width=1,height=1,left=-100,top=-100'
-    );
-    if (popup) setTimeout(() => popup.close(), 3000);
+    // Send to Beehiiv via hidden form submission
+    const hiddenForm = document.createElement('form');
+    hiddenForm.method = 'GET';
+    hiddenForm.action = BEEHIIV_MAGIC;
+    hiddenForm.target = 'beehiiv-frame';
+    hiddenForm.style.display = 'none';
+    const emailField = document.createElement('input');
+    emailField.name = 'email';
+    emailField.value = email;
+    hiddenForm.appendChild(emailField);
+    document.body.appendChild(hiddenForm);
+    hiddenForm.submit();
+    hiddenForm.remove();
 
     // Show success + Tally link
     form.outerHTML = `
