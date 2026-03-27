@@ -97,49 +97,49 @@
     });
   });
 
-  // ─── Form handling ─────────────────────────────
-  // For now, forms show a success state locally.
-  // Replace with Tally.so or Beehiiv integration later.
+  // ─── Form handling — Beehiiv integration ───────
+  const BEEHIIV_MAGIC = 'https://magic.beehiiv.com/v1/0d2b52bf-8988-4372-8a43-d15cb642e851';
 
   window.handleForm = function (e, source) {
     e.preventDefault();
     const form = e.target;
-    const email = form.querySelector('.email-input').value;
+    const input = form.querySelector('.email-input');
+    const email = input.value.trim();
 
     if (!email) return;
 
-    // Store locally (temporary — replace with real backend)
-    const stored = JSON.parse(localStorage.getItem('30days_signups') || '[]');
-    if (!stored.includes(email)) {
-      stored.push(email);
-      localStorage.setItem('30days_signups', JSON.stringify(stored));
-    }
+    // Send to Beehiiv via magic link (hidden iframe to avoid CORS)
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.src = BEEHIIV_MAGIC + '?email=' + encodeURIComponent(email);
+    document.body.appendChild(iframe);
+    setTimeout(() => iframe.remove(), 5000);
 
-    // Show success
-    const parent = form.parentElement;
-    const successHTML = `
+    // Show success + Tally link
+    form.outerHTML = `
       <div class="form-success">
         <p>You're in.</p>
-        <p class="form-success-sub">We'll email you when Cohort #1 opens. Check your inbox.</p>
+        <p class="form-success-sub">We'll email you when Cohort #1 opens.</p>
+        <button class="btn-primary tally-btn" onclick="openTally()" style="margin-top:16px">
+          <span class="btn-text">Help us find your partner</span>
+          <span class="btn-arrow">→</span>
+        </button>
       </div>
     `;
-
-    form.outerHTML = successHTML;
-
-    // Update counters
-    updateSignupCount();
   };
 
-  function updateSignupCount() {
-    const stored = JSON.parse(localStorage.getItem('30days_signups') || '[]');
-    const count = stored.length;
-
-    const counterEl = document.querySelector('#hero-count .accent');
-    if (counterEl) counterEl.textContent = count;
-  }
-
-  // Init counter on load
-  updateSignupCount();
+  // ─── Tally popup ──────────────────────────────
+  window.openTally = function () {
+    if (typeof Tally !== 'undefined' && Tally.openPopup) {
+      Tally.openPopup('81G5e5', {
+        width: 500,
+        emoji: { text: '🤝', animation: 'wave' },
+        hiddenFields: { source: 'landing' }
+      });
+    } else {
+      window.open('https://tally.so/r/81G5e5', '_blank');
+    }
+  };
 
   // ─── Smooth scroll for anchor links ────────────
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
