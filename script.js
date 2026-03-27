@@ -97,9 +97,7 @@
     });
   });
 
-  // ─── Form handling — Beehiiv integration ───────
-  const BEEHIIV_MAGIC = 'https://magic.beehiiv.com/v1/0d2b52bf-8988-4372-8a43-d15cb642e851';
-
+  // ─── Form handling — Beehiiv via serverless API ─
   window.handleForm = function (e, source) {
     e.preventDefault();
     const form = e.target;
@@ -108,19 +106,12 @@
 
     if (!email) return;
 
-    // Send to Beehiiv via hidden form submission
-    const hiddenForm = document.createElement('form');
-    hiddenForm.method = 'GET';
-    hiddenForm.action = BEEHIIV_MAGIC;
-    hiddenForm.target = 'beehiiv-frame';
-    hiddenForm.style.display = 'none';
-    const emailField = document.createElement('input');
-    emailField.name = 'email';
-    emailField.value = email;
-    hiddenForm.appendChild(emailField);
-    document.body.appendChild(hiddenForm);
-    hiddenForm.submit();
-    hiddenForm.remove();
+    // Send to Beehiiv via our Vercel serverless function
+    fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    }).catch(() => {});
 
     // Show success + Tally link
     form.outerHTML = `
