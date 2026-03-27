@@ -108,12 +108,11 @@
 
     if (!email) return;
 
-    // Send to Beehiiv via magic link (hidden iframe to avoid CORS)
-    const iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
-    iframe.src = BEEHIIV_MAGIC + '?email=' + encodeURIComponent(email);
-    document.body.appendChild(iframe);
-    setTimeout(() => iframe.remove(), 5000);
+    // Send to Beehiiv via magic link
+    fetch(BEEHIIV_MAGIC + '?email=' + encodeURIComponent(email), {
+      mode: 'no-cors',
+      credentials: 'omit'
+    }).catch(() => {});
 
     // Show success + Tally link
     form.outerHTML = `
